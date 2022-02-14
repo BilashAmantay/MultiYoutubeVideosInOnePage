@@ -1,6 +1,12 @@
-<h1>Embed multiple Youtube videos to a single web page</h1>
-<form role="form" action="" method="post">
+{% extends 'ui/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>Embed multiple Youtube videos to a single web page</h3>
+<form role="form" action="" method="post" class="uniForm blueForms">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+{% endblock %}

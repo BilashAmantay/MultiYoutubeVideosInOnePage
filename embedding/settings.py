@@ -74,6 +74,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'embedding.wsgi.application'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # Add this
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(__file__)
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)
