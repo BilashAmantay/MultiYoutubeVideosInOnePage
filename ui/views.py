@@ -13,22 +13,20 @@ from .forms import ArticleForm
 def article_create(request):
     if request.method == "POST":
         base_url = 'embed'
-        url = '{}/{}/'.format(base_url, request.POST['URL1']) 
+        youtube_urls = '-'.join([ request.POST['URL1'], request.POST['URL2'] ])
+        url = '{}/{}/'.format(base_url, youtube_urls) 
         return HttpResponseRedirect(url)
 
 
-    article_form = ArticleForm()
+    article_form = ArticleForm(initial={"URL1":"sGkh1W5cbH4", "URL2":"ldiaiDt1w9g"})
     return render(request, "ui/article_form.html", {"form": article_form})
 
 
-def embed(request,url):
-    print('embed view--------------')
-    print(request.method)
-    print(request)
-    print(url)
-    # {'para' : url}
-    if request.method == "POST":
+def embed(request,urls):
+    if request.method == "GET":
         print('got post')
-        print(request.POST)
+        print(urls)
+        URLS = urls.split('-')
+        print('URLS', URLS)
 
-    return render(request, "ui/embed.html",{'URL' : url})
+    return render(request, "ui/embed.html",{'URLS' : URLS})

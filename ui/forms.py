@@ -5,3 +5,4 @@ class ArticleForm(forms.ModelForm):
    class Meta:
        model = Article
        fields = ['URL1','URL2',]
+       
