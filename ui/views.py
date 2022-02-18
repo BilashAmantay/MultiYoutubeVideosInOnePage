@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
+from django.views.generic.base import TemplateView
 from django.urls import reverse
 from urllib.parse import urlencode
 
@@ -8,7 +9,6 @@ from .forms import ArticleForm
 
 # def index(request):
 #     return HttpResponse("Hello, world. You're at the ui index.")
-
 
 def article_create(request):
     if request.method == "POST":
